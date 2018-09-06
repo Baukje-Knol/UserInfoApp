@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>User Info App</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+<header class=header>
+	<h1>Users</h1>
+
+	<div class="navbar-header">
+		<a href="/">Home</a>
+		<a href="users">All Users</a>
+		<a href="search">Search</a>
+		<a href="addUser">Add User</a>
+	</div>
+
+</header>
+
+<section2>
+
+	<table>
+		<% let something = " " %>
+		<% for(var i=0; i < sorted.length; i++) {%>
+			<%	let string = sorted[i].lastname;%>
+			<%	let title = string.charAt(0); %>
+
+			<% if (title !== something) {%>
+				<% something = title%>
+		<tr>
+			<ul>
+				<h2> <%= title %></h2>
+			</ul>
+			<% for(var a=0; a< sorted.length; a++) {%>
+				<%	let string2 = sorted[a].lastname;%>
+				<%	let title2 = string2.charAt(0); %>
+
+		<%	if(title == title2){%>
+
+			<ul>
+				First Name:
+				<%= sorted[a].firstname %>
+			</ul>
+			<ul>
+				Last Name:
+				<%= sorted[a].lastname %>
+			</ul>
+			<ul>
+				Email:
+				<%= sorted[a].email %>
+			</ul>
+			<ul>
+				<br>
+			</ul>
+			<br>
+		</tr>
+		<% } %>
+
+			<% } %>
+		<% } %>
+		<% } %>
+	</table>
+
+</section2>
+
+<footer>
+	created by: Baukje Knol 
+</footer>
+<script type="text/javascript" src="index.js"></script>
+
+</body>
+
+</html>

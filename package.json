@@ -1,0 +1,18 @@
+{
+  "name": "userinfoapp",
+  "version": "1.0.0",
+  "description": "User Info Application",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Baukje-Knol",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "com": "0.0.5",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security"
+  }
+}

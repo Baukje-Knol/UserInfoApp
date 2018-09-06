@@ -1,0 +1,69 @@
+body{
+  margin: 0px;
+  border: 0px;
+}
+header{
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bcd2bf5b6271090e70ea12980ddb02d7&auto=format&fit=crop&w=1067&q=80');
+  background-size: auto;
+  background-position: left top;
+  background-color: black;
+  color: white;
+  padding: 1%;
+  width: 100%;
+  height:6rem;
+  padding-bottom: 15px;
+  padding-left: 30px;
+}
+
+a{
+  color: #cccccc;
+}
+
+section {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bcd2bf5b6271090e70ea12980ddb02d7&auto=format&fit=crop&w=1067&q=80');
+  background-size: auto;
+  min-height: 600px;
+  display: flex;
+  color: #cccccc;
+  align-items: center;
+  padding:1.8%;
+  column-count: 2;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  width:100%;
+}
+
+table{
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bcd2bf5b6271090e70ea12980ddb02d7&auto=format&fit=crop&w=1067&q=80');
+}
+section2 {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bcd2bf5b6271090e70ea12980ddb02d7&auto=format&fit=crop&w=1067&q=80');
+    background-size: auto;
+    display: flex;
+    color: #cccccc;
+    text-align: center;
+    padding:1.8%;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width:100%;
+
+    line-height: 1px;
+  }
+
+  footer{
+    background-image: url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bcd2bf5b6271090e70ea12980ddb02d7&auto=format&fit=crop&w=1067&q=80');
+    position: relative;
+    background-position: left bottom;
+    color:#cccccc;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    height: 40px;
+    padding-top: 10px;
+    padding: 1.8%;
+    vertical-align: bottom;
+}

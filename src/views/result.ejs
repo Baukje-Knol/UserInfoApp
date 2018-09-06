@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>User Search Result</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>User Search Result</h1>
+    <div class="navbar-header">
+      <a href="/">Home</a>
+			<a href="users">All Users</a>
+			<a href="search">Search</a>
+			<a href="addUser">Add User</a>
+    </div>
+  </header>
+  <section>
+    <p>
+      <table>
+        <tr>
+          <ul>
+            <h2><%- print.firstname %>  <%- print.lastname %></h2>
+            <ul>
+              First Name:
+              <%- print.firstname %>
+            </ul>
+            <ul>
+              Last Name:
+              <%- print.lastname %>
+            </ul>
+            <ul>
+              Email:
+              <%= print.email %>
+            </ul>
+        </tr>
+      </table>
+    </p>
+
+
+  </section>
+  <footer>
+    created by: Baukje Knol
+	</footer>
+  <script type="text/javascript" src="index.js"></script>
+
+</body>
+
+</html>

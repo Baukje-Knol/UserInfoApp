@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>User Search</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+
+	<header>
+		<h1>Search Users</h1>
+		<div class="navbar-header">
+			<a href="/">Home</a>
+			<a href="users">All Users</a>
+			<a href="search">Search</a>
+			<a href="addUser">Add User</a>
+		</div>
+	</header>
+	<section>
+		<p>
+			<h3>Please enter a first or last name to search the user database</h3>
+					<%= notFound %>
+			<form action="/result" method="post">
+				First Name: <input type="text" name="FirstName">
+				<br>
+        Last Name: <input type="text" name="LastName">
+				<br>
+				<input type="submit" value="Search">
+
+    </form>
+		</p>
+		<p>
+
+		</p>
+
+
+	</section>
+
+	<footer>
+		created by: Baukje Knol
+	</footer>
+	<script type="text/javascript" src="index.js"></script>
+
+</body>
+
+</html>
