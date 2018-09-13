@@ -13,38 +13,47 @@
     <h1>User Search Result</h1>
     <div class="navbar-header">
       <a href="/">Home</a>
-			<a href="users">All Users</a>
-			<a href="search">Search</a>
-			<a href="addUser">Add User</a>
+      <a href="users">All Users</a>
+      <a href="search">Search</a>
+      <a href="addUser">Add User</a>
     </div>
   </header>
   <section>
     <p>
+
+      <% for(let i=0; i < print.length; i++){ %>
+
+      <%  if (request.FirstName.toLowerCase()==print[i].firstname.toLowerCase() || request.LastName.toLowerCase()==print[i].lastname.toLowerCase()) { %>
+
       <table>
         <tr>
           <ul>
-            <h2><%- print.firstname %>  <%- print.lastname %></h2>
+            <h2><%= print[i].firstname %>  <%- print[i].lastname %></h2>
             <ul>
               First Name:
-              <%- print.firstname %>
+              <%= print[i].firstname %>
             </ul>
             <ul>
               Last Name:
-              <%- print.lastname %>
+              <%= print[i].lastname %>
             </ul>
             <ul>
               Email:
-              <%= print.email %>
+              <%= print[i].email %>
             </ul>
         </tr>
       </table>
+<% } %>
+
+
+<% } %>
     </p>
 
 
   </section>
   <footer>
     created by: Baukje Knol
-	</footer>
+  </footer>
   <script type="text/javascript" src="index.js"></script>
 
 </body>
