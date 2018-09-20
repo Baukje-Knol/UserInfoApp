@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
-const ejs = require('ejs')
+const ejs = require('ejs');
 
 app.set('views', 'views');
 app.set('view engine', 'ejs');
@@ -39,26 +39,50 @@ app.get('/users', (req, res) => {
 
 //search for user
 app.get('/search', (req, res) => {
-  let error = "";
+  let error = ""
+
   res.render('search', {
     error: error
+  })
+});
+
+app.post('/search', (req, res) => {
+  var query=req.body.Name.toUpperCase()
+
+  fs.readFile('../public/users.json', function find(err, data) {
+    if (err) {
+      throw err;
+    }
+    let print = JSON.parse(data);
+    var result = {};
+    for (var i = 0; i < print.length; i++) {
+      var first = print[i].firstname.toUpperCase()
+      var last = print[i].lastname.toUpperCase()
+      if
+      ( first.includes(query))
+    {result[i] = print[i].firstname;}
+      if(last.includes(query)  )
+    {  result[i] = print[i].lastname;}
+    }
+    res.send(result)
+
   })
 });
 
 //display result of user search
 app.post('/result', (req, res) => {
   fs.readFile('../public/users.json', function(err, data) {
-      if (err) {
-        throw err;
-      }
+    if (err) {
+      throw err;
+    }
 
-        let print = JSON.parse(data);
-        let request = req.body;
-        res.render('result', {
-          print: print,
-          request: request
-        })
-})
+    let print = JSON.parse(data);
+    let request = req.body.Name;
+    res.render('result', {
+      print: print,
+      request: request
+    })
+  })
 });
 
 
@@ -74,12 +98,12 @@ app.get('/addUser', (req, res) => {
 //add new user to file and display all users including new one
 app.post('/userAdded', (req, res) => {
   let error = "Please complete all fields before submitting."
-  let newUser=req.body
-  if ((newUser.firstname == "") || (req.body.lastname == "") || (req.body.email == "")){
+  let newUser = req.body
+  if ((newUser.firstname == "") || (req.body.lastname == "") || (req.body.email == "")) {
     res.render('addUser', {
       error: error
-    })}
-  else {
+    })
+  } else {
     fs.readFile('../public/users.json', function(err, data) {
       if (err) {
         throw err
@@ -87,25 +111,25 @@ app.post('/userAdded', (req, res) => {
       var obj = JSON.parse(data)
 
 
-       obj.push(newUser);
-       let sorted =obj.sort(function(a, b) {
-         if (a.lastname < b.lastname) return -1;
-         if (a.lastname > b.lastname) return 1;
-         return 0;
-       })
-
-      // let sorted = pushed.sort
-      fs.writeFile('../public/users.json', JSON.stringify(sorted), function(err){
-        if (err){
-          throw error
-        }
-      res.render('users', {
-        sorted: sorted
+      obj.push(newUser);
+      let sorted = obj.sort(function(a, b) {
+        if (a.lastname < b.lastname) return -1;
+        if (a.lastname > b.lastname) return 1;
+        return 0;
       })
 
+      // let sorted = pushed.sort
+      fs.writeFile('../public/users.json', JSON.stringify(sorted), function(err) {
+        if (err) {
+          throw error
+        }
+        res.render('users', {
+          sorted: sorted
+        })
+
+      })
     })
-    })
-}
+  }
 })
 
 

@@ -23,7 +23,7 @@
 
       <% for(let i=0; i < print.length; i++){ %>
 
-      <%  if (request.FirstName.toLowerCase()==print[i].firstname.toLowerCase() || request.LastName.toLowerCase()==print[i].lastname.toLowerCase()) { %>
+      <%  if (request.toLowerCase()==print[i].firstname.toLowerCase() || request.toLowerCase()==print[i].lastname.toLowerCase()) { %>
 
       <table>
         <tr>
@@ -54,7 +54,6 @@
   <footer>
     created by: Baukje Knol
   </footer>
-  <script type="text/javascript" src="index.js"></script>
 
 </body>
 
