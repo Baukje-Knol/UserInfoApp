@@ -4,6 +4,7 @@
 <head>
 	<title>User Search</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,15 +20,15 @@
 	</header>
 	<section>
 		<p>
-			<h3>Please enter a first or last name to search the user database</h3>
-					<%= error %>
-					
+			<h3>Please enter a name to search the user database</h3>
+			<%= error %>
+
 			<form action="/result" method="post">
-				First Name: <input type="text" name="FirstName">
-				<br>
-        Last Name: <input type="text" name="LastName">
-				<br>
+				Name: <input type="text" id ="Name" autocomplete="off" name = "Name">
+				<ul id="dropdown"></ul>
 				<input type="submit" value="Search">
+
+
 
     </form>
 		</p>
@@ -41,8 +42,32 @@
 	<footer>
 		created by: Baukje Knol
 	</footer>
-	<script type="text/javascript" src="index.js"></script>
-
 </body>
+
+<script type = "text/javascript">
+	$(document).ready(function() {
+		$("#Name").keyup(function() {
+			var Name = $('#Name').val()
+			if(Name.length!=0){
+			$.post("/search", {Name:Name},(response) => {
+				$("#dropdown").empty();
+				for (const el in response) {
+					$('#dropdown').append(`<br><li id = 'clickme' >${response[el]}</li>`)
+				}
+			})
+}
+else{
+	$("#dropdown").empty();
+
+}
+		})
+		$('#dropdown').on('click', 'li',function(){
+			var fill = event.target
+console.log(fill)
+		$('#Name').val(fill.textContent)
+		})
+
+	})
+</script>
 
 </html>
