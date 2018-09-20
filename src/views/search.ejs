@@ -30,6 +30,10 @@
 
 
 
+
+
+
+
     </form>
 		</p>
 		<p>
@@ -44,27 +48,37 @@
 	</footer>
 </body>
 
-<script type = "text/javascript">
+<script type="text/javascript">
 	$(document).ready(function() {
-		$("#Name").keyup(function() {
-			var Name = $('#Name').val()
-			if(Name.length!=0){
-			$.post("/search", {Name:Name},(response) => {
-				$("#dropdown").empty();
-				for (const el in response) {
-					$('#dropdown').append(`<br><li id = 'clickme' >${response[el]}</li>`)
-				}
-			})
-}
-else{
-	$("#dropdown").empty();
+		var myVar;
 
-}
+		$('#Name').keyup(function() {
+			var Name = $('#Name').val()
+			clearTimeout(myVar);
+ 		myVar= setTimeout(function(){
+			bar(Name);
+		},300);
+
+
 		})
-		$('#dropdown').on('click', 'li',function(){
+
+		function bar(Name){	if (Name.length != 0) {
+				$.post("/search", {
+					Name: Name
+				}, (response) => {
+					$("#dropdown").empty();
+					for (const el in response) {
+						$('#dropdown').append(`<br><li id = 'clickme' >${response[el]}</li>`)
+					}
+				})
+			} else {
+				$("#dropdown").empty();
+			}
+		}
+
+		$('#dropdown').on('click', 'li', function() {
 			var fill = event.target
-console.log(fill)
-		$('#Name').val(fill.textContent)
+			$('#Name').val(fill.textContent)
 		})
 
 	})
